@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from calendar import monthrange
 
 class MyDateTime:
-    def _init_(self, year=None, month=None, day=None, hour=0, minute=0, second=0):
+    def __init__(self, year=None, month=None, day=None, hour=0, minute=0, second=0):
         if year is None:
             dt_obj = datetime.utcnow()
             year, month, day = dt_obj.year, dt_obj.month, dt_obj.day
@@ -15,6 +15,7 @@ class MyDateTime:
         self.hour = hour
         self.minute = minute
         self.second = second
+
 
     @classmethod
     def from_iso8601(cls, iso_string):
@@ -75,7 +76,8 @@ class MyDateTime:
         return days_of_week[date.weekday()]
 
 # Add the main block for testing
-if __name__ == "_main_":
+# Add the main block for testing
+if __name__ == "__main__":
     dt = MyDateTime(2023, 11, 28, 12, 30, 45)
     print(dt.to_iso8601())
     print(dt.to_human_readable())
